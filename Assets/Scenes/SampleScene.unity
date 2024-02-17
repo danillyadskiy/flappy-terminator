@@ -894,7 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aff21b50741d5254fa36efcf89aa3444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _delay: 4
+  _delayBetweenSpawn: 3
   _lowerBound: 2
   _upperBound: -2
   _pool: {fileID: 649466302}
