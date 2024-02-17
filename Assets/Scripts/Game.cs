@@ -3,8 +3,7 @@ using UnityEngine.Serialization;
 
 public class Game : MonoBehaviour
 {
-    [FormerlySerializedAs("_bird")] [SerializeField] private Ship _ship;
-    [SerializeField] private PipeGenerator _pipeGenerator;
+    [SerializeField] private Ship _ship;
     [SerializeField] private StartGameScreen _startGameScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
 

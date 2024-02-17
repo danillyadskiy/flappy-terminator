@@ -31,7 +31,7 @@ public class Ship : MonoBehaviour
 
     private void ProcessCollision(IInteractable interactable)
     {
-        if (interactable is Pipe)
+        if (interactable is Enemy)
         {
             GameOver?.Invoke();
         }

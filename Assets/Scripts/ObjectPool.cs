@@ -4,34 +4,32 @@ using UnityEngine;
 public class ObjectPool : MonoBehaviour
 {
     [SerializeField] private Transform _container;
-    [SerializeField] private Pipe _prefab;
+    [SerializeField] private Enemy _prefab;
 
-    private Queue<Pipe> _pool;
-
-    public IEnumerable<Pipe> PooledObjects => _pool;
-
+    private Queue<Enemy> _pool;
+    
     private void Awake()
     {
-        _pool = new Queue<Pipe>();
+        _pool = new Queue<Enemy>();
     }
 
-    public Pipe GetObject()
+    public Enemy GetObject()
     {
         if (_pool.Count == 0)
         {
-            var pipe = Instantiate(_prefab);
-            pipe.transform.parent = _container;
+            var enemy = Instantiate(_prefab);
+            enemy.transform.parent = _container;
 
-            return pipe;
+            return enemy;
         }
 
         return _pool.Dequeue();
     }
 
-    public void PutObject(Pipe pipe)
+    public void PutObject(Enemy enemy)
     {
-        _pool.Enqueue(pipe);
-        pipe.gameObject.SetActive(false);
+        _pool.Enqueue(enemy);
+        enemy.gameObject.SetActive(false);
     }
 
     public void Reset()
