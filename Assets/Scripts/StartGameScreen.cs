@@ -1,6 +1,6 @@
 using System;
 
-public class StartScreen : Window
+public class StartGameScreen : Window
 {
     public event Action PlayButtonClicked;
 
