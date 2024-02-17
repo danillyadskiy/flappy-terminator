@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class EnemyGenerator : MonoBehaviour
 {
-    [SerializeField] private float _delay;
+    [SerializeField] private float _delayBetweenSpawn;
     [SerializeField] private float _lowerBound;
     [SerializeField] private float _upperBound;
     [SerializeField] private ObjectPool _pool;
@@ -15,7 +15,7 @@ public class EnemyGenerator : MonoBehaviour
 
     private IEnumerator GenerateEnemies()
     {
-        var wait = new WaitForSeconds(_delay);
+        var wait = new WaitForSeconds(_delayBetweenSpawn);
 
         while (enabled) 
         {
@@ -33,5 +33,6 @@ public class EnemyGenerator : MonoBehaviour
 
         enemy.gameObject.SetActive(true);
         enemy.transform.position = spawnPoint;
+        enemy.Operate();
     }
 }

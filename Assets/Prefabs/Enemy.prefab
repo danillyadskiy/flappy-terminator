@@ -357,3 +357,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cf7dc5abb2643d39e61f69765f7122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bullet: {fileID: 2036196236145225154, guid: 5ed32af1201d249b5b4c042913f34fa4, type: 3}
+  _delayBetweenShot: 2

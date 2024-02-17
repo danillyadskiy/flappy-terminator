@@ -10,5 +10,10 @@ public class ObjectRemover : MonoBehaviour
         {
             _pool.PutObject(enemy);
         }
+        
+        if (other.TryGetComponent(out Bullet bullet))
+        {
+            Destroy(bullet.gameObject);
+        }
     }
 }

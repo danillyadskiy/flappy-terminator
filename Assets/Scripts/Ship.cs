@@ -36,6 +36,11 @@ public class Ship : MonoBehaviour
             GameOver?.Invoke();
         }
         
+        if (interactable is Bullet)
+        {
+            GameOver?.Invoke();
+        }
+        
         if (interactable is KillBox)
         {
             GameOver?.Invoke();
