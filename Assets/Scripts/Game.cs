@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Game : MonoBehaviour
 {
-    [SerializeField] private Bird _bird;
+    [FormerlySerializedAs("_bird")] [SerializeField] private Ship _ship;
     [SerializeField] private PipeGenerator _pipeGenerator;
     [SerializeField] private StartGameScreen _startGameScreen;
     [SerializeField] private EndGameScreen _endGameScreen;
@@ -11,14 +12,14 @@ public class Game : MonoBehaviour
     {
         _startGameScreen.PlayButtonClicked += OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked += OnRestartButtonClick;
-        _bird.GameOver += OnGameOver;
+        _ship.GameOver += OnGameOver;
     }
 
     private void OnDisable()
     {
         _startGameScreen.PlayButtonClicked -= OnPlayButtonClick;
         _endGameScreen.RestartButtonClicked -= OnRestartButtonClick;
-        _bird.GameOver -= OnGameOver;
+        _ship.GameOver -= OnGameOver;
     }
 
     private void Start()
@@ -47,6 +48,6 @@ public class Game : MonoBehaviour
     private void StartGame()
     {
         Time.timeScale = 1;
-        _bird.Reset();
+        _ship.Reset();
     }
 }

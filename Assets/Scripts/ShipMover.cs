@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class BirdMover : MonoBehaviour
+public class ShipMover : MonoBehaviour
 {
     [SerializeField] private float _tapForce;
     [SerializeField] private float _speed;
@@ -13,6 +13,7 @@ public class BirdMover : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Quaternion _maxRotation;
     private Quaternion _minRotation;
+    private Quaternion _initialRotation;
 
     private void Start()
     {
@@ -21,6 +22,7 @@ public class BirdMover : MonoBehaviour
 
         _maxRotation = Quaternion.Euler(0, 0, _maxRotationZ);
         _minRotation = Quaternion.Euler(0, 0, _minRotationZ);
+        _initialRotation = Quaternion.Euler(0, 0, 270);
 
         Reset();
     }
@@ -39,7 +41,7 @@ public class BirdMover : MonoBehaviour
     public void Reset()
     {
         transform.position = _startPosition;
-        transform.rotation = Quaternion.identity;
+        transform.rotation = _initialRotation;
         _rigidbody2D.velocity = Vector2.zero;
     }
 }

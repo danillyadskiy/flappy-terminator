@@ -1,22 +1,22 @@
 using System;
 using UnityEngine;
 
-[RequireComponent(typeof(BirdMover))]
+[RequireComponent(typeof(ShipMover))]
 [RequireComponent(typeof(ScoreCounter))]
-[RequireComponent(typeof(BirdCollisionHandler))]
-public class Bird : MonoBehaviour
+[RequireComponent(typeof(ShipCollisionHandler))]
+public class Ship : MonoBehaviour
 {
-    private BirdMover _birdMover;
+    private ShipMover _shipMover;
     private ScoreCounter _scoreCounter;
-    private BirdCollisionHandler _handler;
+    private ShipCollisionHandler _handler;
 
     public event Action GameOver;
 
     private void Awake()
     {
         _scoreCounter = GetComponent<ScoreCounter>();
-        _handler = GetComponent<BirdCollisionHandler>();
-        _birdMover = GetComponent<BirdMover>();
+        _handler = GetComponent<ShipCollisionHandler>();
+        _shipMover = GetComponent<ShipMover>();
     }
 
     private void OnEnable()
@@ -45,6 +45,6 @@ public class Bird : MonoBehaviour
     public void Reset()
     {
         _scoreCounter.Reset();
-        _birdMover.Reset();
+        _shipMover.Reset();
     }
 }
