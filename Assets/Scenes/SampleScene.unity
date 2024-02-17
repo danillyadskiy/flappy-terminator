@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 096496d7c62672d4cadc49de38ae163d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bullet: {fileID: -5745257042243860000, guid: e6e9d14b4bbcf4a3498ef405399ba53b, type: 3}
+  _bulletSpeed: 5
 --- !u!58 &89268448
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -881,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _container: {fileID: 1879254870}
-  _prefab: {fileID: 7883138087988484673, guid: c3aba9154358d4405b30f8d8a425e309, type: 3}
+  _prefab: {fileID: 1537326118112371644, guid: c3aba9154358d4405b30f8d8a425e309, type: 3}
 --- !u!114 &649466303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1395,7 +1397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.30566037, b: 0.30566037, a: 0.5254902}
+  m_Color: {r: 1, g: 0.30566037, b: 0.30566037, a: 0.25490198}
   m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

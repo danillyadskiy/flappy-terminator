@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(ShipMover))]
@@ -6,11 +7,20 @@ using UnityEngine;
 [RequireComponent(typeof(ShipCollisionHandler))]
 public class Ship : MonoBehaviour
 {
+    [SerializeField] private ShipBullet _bullet;
+    [SerializeField, Min(0)] private float _bulletSpeed;
+    
     private ShipMover _shipMover;
     private ScoreCounter _scoreCounter;
     private ShipCollisionHandler _handler;
 
     public event Action GameOver;
+    
+    public void Reset()
+    {
+        _scoreCounter.Reset();
+        _shipMover.Reset();
+    }
 
     private void Awake()
     {
@@ -36,7 +46,7 @@ public class Ship : MonoBehaviour
             GameOver?.Invoke();
         }
         
-        if (interactable is Bullet)
+        if (interactable is EnemyBullet)
         {
             GameOver?.Invoke();
         }
@@ -52,9 +62,17 @@ public class Ship : MonoBehaviour
         }
     }
 
-    public void Reset()
+    private void Update()
     {
-        _scoreCounter.Reset();
-        _shipMover.Reset();
+        if (Input.GetMouseButtonDown(0))
+        {
+            MakeShot();
+        }
+    }
+
+    private void MakeShot()
+    {
+        Bullet bullet = Instantiate(_bullet, transform.position, _bullet.transform.rotation);
+        bullet.SetDirection(Vector2.up * _bulletSpeed);
     }
 }

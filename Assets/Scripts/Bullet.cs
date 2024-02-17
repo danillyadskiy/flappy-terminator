@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour, IInteractable
+public abstract class Bullet : MonoBehaviour, IInteractable
 {
     private Vector2 _direction;
     

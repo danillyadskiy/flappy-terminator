@@ -1,15 +1,40 @@
 using System.Collections;
-using Unity.Mathematics;
 using UnityEngine;
 
+[RequireComponent(typeof(ShipCollisionHandler))]
 public class Enemy : MonoBehaviour, IInteractable
 {
-    [SerializeField] private Bullet _bullet;
+    [SerializeField] private EnemyBullet _bullet;
     [SerializeField] private float _delayBetweenShot;
+    
+    private ShipCollisionHandler _handler;
 
     public void Operate()
     {
         StartCoroutine(MakeShot());
+    }
+    
+    private void Awake()
+    {
+        _handler = GetComponent<ShipCollisionHandler>();
+    }
+    
+    private void OnEnable()
+    {
+        _handler.CollisionDetected += ProcessCollision;
+    }
+
+    private void OnDisable()
+    {
+        _handler.CollisionDetected -= ProcessCollision;
+    }
+    
+    private void ProcessCollision(IInteractable interactable)
+    {
+        if (interactable is ShipBullet)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Start()
