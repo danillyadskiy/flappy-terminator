@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -48,5 +49,23 @@ public class Game : MonoBehaviour
     {
         Time.timeScale = 1;
         _ship.Reset();
+        EnemiesReset();
+        BulletsReset();
+    }
+    
+    private void EnemiesReset()
+    {
+        Enemy[] enemies = FindObjectsOfType<Enemy>();
+
+        foreach (Enemy enemy in enemies)
+            Destroy(enemy.gameObject);
+    }
+
+    private void BulletsReset()
+    {
+        Bullet[] bullets = FindObjectsOfType<Bullet>();
+
+        foreach (Bullet bullet in bullets)
+            Destroy(bullet.gameObject);
     }
 }
